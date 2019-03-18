@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <p>Time: <span id="timer"></span></p>
         <p>Document Last Updated: <span id="updated"></span></p>
         <script>
             var t0 = performance.now();
-            var firstName = "Zach";
-            var lastName = "Pfister-Shanders";
-
+            //var firstName = "Zach";
+            //var lastName = "Pfister-Shanders";
+            // Reminder: in milliseconds
+            var start = Date.now();
+            setInterval(function(){
+                var elapsed = Date.now()-start;
+                //output(Math.floor(elapsed/1000)); //Math.floor returns largest interger less than or equal to returned number
+                var sec = Math.floor(elapsed/1000);
+                document.getElementById("timer").innerHTML = sec;
+            }, 1000);
             var t1 = performance.now();
             console.log("This took "+(t1-t0)+" time to execute");
             document.getElementById("updated").innerHTML = document.lastModified;
